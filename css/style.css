@@ -29,11 +29,11 @@
   margin-right: auto;
   cursor: pointer;
 }
-.nav__listlogo svg {
+.nav__listlogo .place_holder {
   width: 2rem;
   transition: fill 250ms ease-in;
 }
-.nav__listlogo svg:hover, .nav__listlogo svg:focus {
+.nav__listlogo .place_holder:hover, .nav__listlogo .place_holder:focus {
   fill: rgb(125, 125, 125);
 }
 .nav__listitem {
