@@ -6,11 +6,109 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-// You can add variables here
-$redColor: rgba(200,50,50, 1);
-//
+// Add variables here///////////////////
+$redColor: rgba(230,70,70,1);
+$limeGreenColor: rgba(150,200,100,1);
+$whiteColor: rgba(225,225,225,1);
+$grayColor: rgba(125,125,125,1);
+$radius: 0.2rem;
+///////////////////////////////////////
 .container {
     width: 100vw;
     height: 100vh;
-    background-color: $redColor;
+    background-color: $limeGreenColor;
+}
+
+.nav {
+    position: fixed;
+    width: 100vw;
+    box-shadow: 0 0 10px $grayColor;
+
+    &__list {
+        //same as .nav__list but looks for __list items
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 2rem;
+
+        &logo {
+            //.nav__listlogo {
+            list-style: none;
+            margin-right: auto;
+            cursor: pointer;
+
+            // svg#infinity
+            svg {
+                width: 2rem;
+                transition: fill 250ms ease-in;
+
+                &:hover,
+                &:focus {
+                    fill: $grayColor;
+                }
+            }
+        }
+
+        &item {
+            list-style: none;
+            font-weight: bold;
+            position: relative;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                width: 0;
+                height: 0.3rem;
+                border-radius: $radius;
+                position: absolute;
+                left: 1rem;
+                bottom: 0.8rem;
+                background-color: $limeGreenColor;
+                transition: width 200ms ease-in;
+            }
+
+            &:hover::after,
+            &:focus::after {
+                width: 80%;
+            }
+
+            &:hover ul,
+            &:focus ul {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &drop {
+                position: absolute;
+                top: 4rem;
+                left: -1rem;
+                box-shadow: 0 0 10px $grayColor;
+                background-color: $whiteColor;
+                border-radius: $radius;
+                width: 12rem;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 200ms ease-in-out;
+
+                li {
+                    list-style: none;
+                    padding: 0.5rem;
+                    border-radius: $radius;
+                    transition: background-color 200ms ease-in-out;
+
+                    &:hover,
+                    &:focus {
+                        background-color: $grayColor;
+                    }
+                }
+
+            }
+        }
+    }
 }
